@@ -79,6 +79,5 @@ export const createNewUserInDatabase = async (
   if (createUserResponse.error) {
     throw new Error("Failed to create user record");
   }
-
   return createUserResponse;
 };
