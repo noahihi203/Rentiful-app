@@ -11,6 +11,7 @@ import tenantRoutes from "./routes/tenantRoutes";
 import managerRoutes from "./routes/managerRoutes";
 import propertyRoutes from "./routes/propertyRoutes";
 import leaseRoutes from "./routes/leaseRoutes";
+import applicationRoutes from "./routes/applicationRoutes";
 
 /* CONFIGURATIONS */
 
@@ -30,9 +31,9 @@ app.get("/", (req, res) => {
   res.send("This is home route");
 });
 
-
-app.use("/properties", propertyRoutes)
-app.use("/leases", leaseRoutes)
+app.use("/applications", applicationRoutes);
+app.use("/properties", propertyRoutes);
+app.use("/leases", leaseRoutes);
 app.use("/tenants", authMiddleware(["tenant"]), tenantRoutes);
 app.use("/managers", authMiddleware(["manager"]), managerRoutes);
 
