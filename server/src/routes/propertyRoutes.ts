@@ -13,7 +13,7 @@ const upload = multer({ storage: storage})
 const router = express.Router();
 
 router.get("/", getProperties);
-router.put("/:id", getProperty);
+router.get("/:id", getProperty);
 router.post("/",
     authMiddleware(["manager"]),
     upload.array("photos"),
