@@ -1,4 +1,4 @@
-import { cleanParams, createNewUserInDatabase, withToast } from "@/lib/utils";
+import { cleanParams, createNewUserInDatabase } from "@/lib/utils";
 import { Manager, Property, Tenant } from "@/types/prismaTypes";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
@@ -16,7 +16,7 @@ export const api = createApi({
     },
   }),
   reducerPath: "api",
-  tagTypes: ["Managers", "Tenants", "Properties"],
+  tagTypes: ["Managers", "Tenants", "Properties", "PropertyDetails"],
   endpoints: (build) => ({
     getAuthUser: build.query<User, void>({
       queryFn: async (_, _queryApi, _extraOptions, fetchWithBQ) => {
@@ -113,6 +113,12 @@ export const api = createApi({
             ]
           : [{ type: "Properties", id: "LIST" }],
     }),
+
+    getProperty: build.query<Property, number>({
+      query: (id) => `properties/${id}`,
+      providesTags: (result, error, id) => [{ type: "PropertyDetails", id }],
+    }),
+
     // tenant related endpoints
     getTenant: build.query<Tenant, string>({
       query: (cognitoId) => `tenants/${cognitoId}`,
@@ -160,6 +166,7 @@ export const {
   useUpdateTenantSettingsMutation,
   useUpdateManagerSettingsMutation,
   useGetPropertiesQuery,
+  useGetPropertyQuery,
   useGetTenantQuery,
   useAddFavoritePropertyMutation,
   useRemoveFavoritePropertyMutation,
