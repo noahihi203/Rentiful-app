@@ -30,6 +30,8 @@ const Listings = () => {
     isError,
   } = useGetPropertiesQuery(filters);
 
+  console.log("Properties: ", properties);
+
   const handleFavoriteToggle = async (propertyId: number) => {
     if (!authUser) return;
 

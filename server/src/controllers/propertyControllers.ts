@@ -239,6 +239,7 @@ export const createProperty = async (
         "User-Agent": "RealEstateApp (justsomedummyemail@gmail.com",
       },
     });
+    console.log("Geocoding Response:", geocodingResponse.data);
     const [longitude, latitude] =
       geocodingResponse.data[0]?.lon && geocodingResponse.data[0]?.lat
         ? [
@@ -253,7 +254,7 @@ export const createProperty = async (
       VALUES (${address}, ${city}, ${state}, ${country}, ${postalCode}, ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326))
       RETURNING id, address, city, state, country, "postalCode", ST_AsText(coordinates) as coordinates;
     `;
-
+    console.log("Location ID:", location); // Kiểm tra giá trị location.id
     // create property
     const newProperty = await prisma.property.create({
       data: {
