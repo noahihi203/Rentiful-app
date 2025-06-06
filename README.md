@@ -1,122 +1,122 @@
-# 不動産賃貸管理プラットフォーム
+# Nền Tảng Quản Lý Bất Động Sản Cho Thuê
 
-## プロジェクト概要
+## Tổng Quan Dự Án
 
-このプロジェクトは、物件オーナー・管理者と賃借人をつなぐ総合的な不動産賃貸管理プラットフォームです。物件の検索、申し込み、契約管理から家賃支払いまでの全プロセスをデジタル化し、効率的な不動産賃貸管理を実現します。
+Dự án này là một nền tảng quản lý bất động sản toàn diện, kết nối chủ nhà/người quản lý với người thuê. Nền tảng số hóa toàn bộ quy trình từ tìm kiếm, đăng ký, quản lý hợp đồng đến thanh toán tiền thuê nhà, giúp quản lý bất động sản cho thuê hiệu quả hơn.
 
-## 特徴
+## Tính Năng
 
-- **高度な物件検索機能**: 地域、価格帯、寝室数、バスルーム数など多様な条件での検索
-- **ユーザー管理**: テナント（賃借人）と管理者（オーナー）両方のユーザータイプをサポート
-- **申込・契約管理**: オンラインでの物件申し込みと契約書管理
-- **支払い追跡**: 家賃支払いの追跡と管理
-- **地図統合**: 位置情報を活用した物件検索
-- **お気に入り機能**: ユーザーが気に入った物件の保存
+- **Tìm Kiếm Bất Động Sản Nâng Cao**: Tìm kiếm theo khu vực, giá cả, số phòng ngủ, phòng tắm và nhiều tiêu chí khác
+- **Quản Lý Người Dùng**: Hỗ trợ cả hai loại người dùng là người thuê và chủ nhà/người quản lý
+- **Quản Lý Đơn Đăng Ký & Hợp Đồng**: Đăng ký tài sản và quản lý hợp đồng trực tuyến
+- **Theo Dõi Thanh Toán**: Theo dõi và quản lý các khoản thanh toán tiền thuê
+- **Tích Hợp Bản Đồ**: Tìm kiếm bất động sản dựa trên vị trí địa lý
+- **Chức Năng Yêu Thích**: Người dùng có thể lưu các bất động sản họ thích
 
-## 技術スタック
+## Công Nghệ Sử Dụng
 
-### フロントエンド（Client）
+### Frontend (Client)
 
-- **Next.js**: React ベースのフレームワーク
-- **TypeScript**: 型安全な開発
-- **Tailwind CSS**: モダンな UI デザイン
-- **Redux Toolkit**: 状態管理
-- **Framer Motion**: アニメーション
-- **Mapbox API**: 地図統合
+- **Next.js**: Framework dựa trên React
+- **TypeScript**: Phát triển với type an toàn
+- **Tailwind CSS**: Thiết kế UI hiện đại
+- **Redux Toolkit**: Quản lý state
+- **Framer Motion**: Hiệu ứng chuyển động
+- **Mapbox API**: Tích hợp bản đồ
 
-### バックエンド（Server）
+### Backend (Server)
 
-- **Node.js**: サーバーサイド環境
-- **Express**: WebAPI フレームワーク
-- **Prisma**: データベース ORM
-- **PostgreSQL**: リレーショナルデータベース
-- **PostGIS**: 地理空間データ拡張
+- **Node.js**: Môi trường server-side
+- **Express**: Framework Web API
+- **Prisma**: ORM cho database
+- **PostgreSQL**: Cơ sở dữ liệu quan hệ
+- **PostGIS**: Mở rộng dữ liệu không gian địa lý
 
-## プロジェクト構造
+## Cấu Trúc Dự Án
 
 ```
-client/             # フロントエンドアプリケーション
-  src/              # ソースコード
+client/             # Ứng dụng frontend
+  src/              # Mã nguồn
     app/            # Next.js App Router
-    components/     # 再利用可能なコンポーネント
-    hooks/          # カスタムReactフック
-    lib/            # ユーティリティ関数
-    state/          # Redux状態管理
-    types/          # TypeScript型定義
+    components/     # Các component có thể tái sử dụng
+    hooks/          # Custom React hooks
+    lib/            # Các hàm tiện ích
+    state/          # Quản lý state với Redux
+    types/          # Định nghĩa TypeScript
 
-server/             # バックエンドアプリケーション
-  prisma/           # Prismaスキーマと移行
-  src/              # ソースコード
-    controllers/    # APIコントローラー
-    middleware/     # ミドルウェア
-    routes/         # APIルート定義
+server/             # Ứng dụng backend
+  prisma/           # Schema Prisma và migrations
+  src/              # Mã nguồn
+    controllers/    # Các controller API
+    middleware/     # Middleware
+    routes/         # Định nghĩa route API
 ```
 
-## 開発環境のセットアップ
+## Cài Đặt Môi Trường Phát Triển
 
-### 前提条件
+### Yêu Cầu
 
-- Node.js (v18 以上)
-- PostgreSQL (v14 以上)
-- PostGIS 拡張
+- Node.js (v18 trở lên)
+- PostgreSQL (v14 trở lên)
+- Phần mở rộng PostGIS
 
-### クライアントのセットアップ
+### Cài Đặt Client
 
 ```bash
-# クライアントディレクトリに移動
+# Di chuyển đến thư mục client
 cd client
 
-# 依存関係のインストール
+# Cài đặt các dependencies
 npm install
 
-# 開発サーバーの起動
+# Khởi động server phát triển
 npm run dev
 ```
 
-### サーバーのセットアップ
+### Cài Đặt Server
 
 ```bash
-# サーバーディレクトリに移動
+# Di chuyển đến thư mục server
 cd server
 
-# 依存関係のインストール
+# Cài đặt các dependencies
 npm install
 
-# .envファイルの作成（環境変数の設定）
+# Tạo file .env (cấu hình biến môi trường)
 # DATABASE_URL="postgresql://user:password@localhost:5432/rental_db?schema=public"
 
-# データベースマイグレーションの実行
+# Chạy migration database
 npx prisma migrate dev
 
-# 開発サーバーの起動
+# Khởi động server phát triển
 npm run dev
 ```
 
-## デプロイ
+## Triển Khai
 
-### クライアント（Next.js）
+### Client (Next.js)
 
-- Vercel へのデプロイが推奨されます
-- Netlify、AWS Amplify なども選択肢として
+- Khuyến nghị triển khai trên Vercel
+- Các lựa chọn khác: Netlify, AWS Amplify
 
-### サーバー（Node.js/Express）
+### Server (Node.js/Express)
 
-- AWS EC2、Heroku、Google Cloud Run など
+- AWS EC2, Heroku, Google Cloud Run,...
 
-## こだわりポイント
+## Điểm Nổi Bật
 
-1. **モダンな UI/UX 設計**: アニメーションと直感的な操作性
-2. **地図統合検索**: 視覚的な物件探し体験
-3. **多様な検索フィルター**: 細かい条件設定が可能
-4. **レスポンシブデザイン**: あらゆるデバイスに対応
-5. **リアルタイムデータ更新**: 最新の物件情報の表示
-6. **セキュアな認証システム**: 安全なユーザー管理
-7. **地理空間データの活用**: 効率的な位置情報処理
+1. **Thiết Kế UI/UX Hiện Đại**: Hiệu ứng chuyển động và tương tác trực quan
+2. **Tìm Kiếm Tích Hợp Bản Đồ**: Trải nghiệm tìm kiếm bất động sản trực quan
+3. **Bộ Lọc Tìm Kiếm Đa Dạng**: Cho phép thiết lập điều kiện tìm kiếm chi tiết
+4. **Thiết Kế Responsive**: Tương thích với mọi thiết bị
+5. **Cập Nhật Dữ Liệu Thời Gian Thực**: Hiển thị thông tin bất động sản mới nhất
+6. **Hệ Thống Xác Thực An Toàn**: Quản lý người dùng bảo mật
+7. **Tận Dụng Dữ Liệu Không Gian Địa Lý**: Xử lý thông tin vị trí hiệu quả
 
-## ライセンス
+## Giấy Phép
 
 MIT
 
 ---
 
-© 2025 不動産賃貸管理プラットフォーム
+© 2025 Nền Tảng Quản Lý Bất Động Sản Cho Thuê
